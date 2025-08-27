@@ -11,7 +11,7 @@ const sampleInternships: Internship[] = [
   {
     id: "1",
     title: "Frontend Development Intern",
-    department: "Technology",
+    department: "Software Development",
     location: "Mumbai, India",
     duration: "3 months",
     type: "Full-time",
@@ -68,7 +68,7 @@ const sampleInternships: Internship[] = [
   {
     id: "4",
     title: "Backend Development Intern",
-    department: "Technology",
+    department: "Software Development",
     location: "Pune, India",
     duration: "4 months",
     type: "Full-time",
@@ -86,26 +86,26 @@ const sampleInternships: Internship[] = [
   },
   {
     id: "5",
-    title: "Content Writing Intern",
-    department: "Marketing",
+    title: "Data Science Intern",
+    department: "Data Science",
     location: "Remote",
     duration: "6 weeks",
     type: "Part-time",
-    description: "Create engaging content for blogs, social media, and marketing materials. Learn SEO writing and content strategy.",
+    description: "Work with data analytics, machine learning models, and data visualization. Learn data processing and analysis techniques.",
     requirements: [
-      "Excellent writing skills",
-      "Basic SEO knowledge",
-      "Research abilities",
-      "Creativity and adaptability"
+      "Basic Python/R knowledge",
+      "Statistics fundamentals",
+      "Analytical thinking",
+      "Interest in data science"
     ],
-    benefits: ["Certificate", "Writing Portfolio", "Bylined Articles"],
+    benefits: ["Certificate", "Data Portfolio", "Industry Projects"],
     applicationDeadline: "Jan 20, 2025",
     spotsAvailable: 5,
     totalSpots: 8
   }
 ];
 
-const departments = ["All", "Technology", "Marketing", "Design", "Business"];
+const departments = ["All", "Software Development", "Marketing", "Design", "Data Science"];
 const types = ["All", "Full-time", "Part-time", "Remote", "Hybrid"];
 const locations = ["All", "Mumbai", "Delhi", "Bangalore", "Pune", "Remote"];
 
@@ -250,8 +250,17 @@ const InternshipGrid = () => {
         {/* Internship Grid */}
         {filteredInternships.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            {filteredInternships.map((internship) => (
-              <InternshipCard key={internship.id} internship={internship} />
+            {filteredInternships.map((internship, index) => (
+              <div 
+                key={internship.id} 
+                className="animate-slide-up"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <InternshipCard internship={internship} />
+              </div>
             ))}
           </div>
         ) : (
